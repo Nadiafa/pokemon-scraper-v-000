@@ -8,7 +8,7 @@ class Pokemon
     @db   = db
   end 
   
-  def self.save
+  def save
     sql = "INSERT INTO pokemons (name, type) VALUES (?, ?)"
     DB[:conn].execute(sql, self.name, self.type)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM pokemons")[0][0]
